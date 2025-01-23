@@ -1,6 +1,6 @@
 ---
 
-- hosts: windows1
+- hosts: windows
 
   tasks:
     - name: ping
