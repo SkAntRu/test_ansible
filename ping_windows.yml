@@ -1,10 +1,16 @@
 ---
 
 - hosts: windows
-
+  gather_facts: no
+  
   tasks:
-    - name: ping
+    - name: ping to stdout-err
+      ga
       ansible.windows.win_command:
         # When using cmd, the arguments need to be quoted manually
         cmd: 'ping 8.8.8.8'
-        chdir: C:\Windows\TEMP
+        register: ping
+
+    - debug: msg="{{ ping.stdout }}"
+
+    - debug: msg="{{ ping.stderr }}"
