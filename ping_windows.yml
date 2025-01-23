@@ -8,8 +8,3 @@
       ansible.windows.win_command:
         # When using cmd, the arguments need to be quoted manually
         cmd: 'ping 8.8.8.8'
-        register: ping
-
-    - debug: msg="{{ ping.stdout }}"
-
-    - debug: msg="{{ ping.stderr }}"
